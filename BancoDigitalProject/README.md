@@ -1,4 +1,4 @@
-#DIGITAL BANK PROJECT
+# DIGITAL BANK PROJECT
 This project abstractly describes the relationship of a digital bank with different types of accounts and customers.
 
 ## savings account
