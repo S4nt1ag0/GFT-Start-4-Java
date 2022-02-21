@@ -88,6 +88,14 @@ public abstract class Account {
 
     }
 
+    public void pix(double value, Account accountTarget){
+        if (accountTarget == null){
+            throw new DigitalBankException("invalid account");
+        }
+        accountTarget.deposit(withdraw(value));
+
+    }
+
     @Override
     public String toString() {
         return "agency=" + agency +
