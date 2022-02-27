@@ -3,13 +3,23 @@ package entities;
 import java.util.*;
 
 public class Dev {
+
+    private static int ID_AUTO = 1;
+
     private String name;
     private int Level = 0;
+    private int ID;
     private Map<String,Bootcamp> bootcamps =  new HashMap<>();
     private Set<Conteudo> contentsFinished = new LinkedHashSet<>();
 
+
     public Dev(String name) {
         this.name = name;
+        this.ID = ID_AUTO++;
+    }
+
+    public int getID() {
+        return ID;
     }
 
     public String getName() {
@@ -78,18 +88,19 @@ public class Dev {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Dev dev = (Dev) o;
-        return Objects.equals(name, dev.name);
+        return ID == dev.ID;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(ID);
     }
 
     @Override
     public String toString() {
         return "name='" + name + '\'' + "\n" +
                 "\t Level=" + Level + "\n" +
+                "\t ID=" + ID + "\n" +
                 "\t bootcamps= [" + bootcamps + "]"+"\n" +
                 "\t contentsFinished=" + contentsFinished;
     }
